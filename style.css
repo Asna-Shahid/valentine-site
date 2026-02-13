@@ -11,87 +11,82 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #1c1c1c, #2c2c2c);
-  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  font-family: 'Georgia', serif;
   padding: 20px;
-}
-
-/* Container */
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Card */
 .card {
-  background: #f8f5f0;
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  background: #f4f1ea;
+  padding: 50px 40px;
+  border-radius: 12px;
   text-align: center;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 1.5s ease forwards;
 }
 
-/* Headings */
-h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+/* Elegant fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h2 {
-  font-size: 20px;
-  margin-bottom: 25px;
-  color: #333;
+  font-size: 22px;
+  margin-bottom: 35px;
+  color: #2c2c2c;
+  letter-spacing: 1px;
 }
 
-/* Buttons */
+/* Buttons container */
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
+/* Buttons */
 button {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
-  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 6px;
+  border: 1px solid #c2a663;
+  background: transparent;
+  color: #2c2c2c;
+  font-size: 14px;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: 0.3s ease;
-  min-width: 120px;
+  transition: all 0.3s ease;
 }
 
+/* Yes button */
 button:first-child {
-  background-color: #c6a75e;
+  background: #c2a663;
   color: white;
 }
 
 button:first-child:hover {
-  background-color: #b8954f;
-  transform: scale(1.05);
+  background: #a88d4f;
 }
 
-button:last-child {
-  background-color: #444;
-  color: white;
-}
-
+/* No button */
 button:last-child:hover {
-  background-color: #222;
+  background: #e8e4db;
 }
 
-/* Mobile adjustments */
+/* Mobile */
 @media (max-width: 480px) {
   .card {
-    padding: 30px 20px;
-  }
-
-  h2 {
-    font-size: 18px;
+    padding: 35px 20px;
   }
 
   button {
