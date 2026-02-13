@@ -1,38 +1,48 @@
 /* Reset */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 /* Body */
 body {
-  height: 100vh;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe6eb, #fff7f9);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #121212;
-  font-family: 'Georgia', serif;
+  font-family: 'Segoe UI', sans-serif;
   padding: 20px;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Card */
 .card {
-  background: #f4f1ea;
-  padding: 50px 40px;
-  border-radius: 12px;
-  text-align: center;
+  background: white;
+  color: #444;
+  padding: 40px 28px;
   width: 100%;
-  max-width: 420px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  animation: fadeIn 1.5s ease forwards;
+  max-width: 380px;   /* responsive width */
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(255, 120, 160, 0.18);
+  position: relative;
+  animation: fadeIn 1.2s ease;
 }
 
-/* Elegant fade animation */
+/* Gentle entrance */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -40,56 +50,97 @@ body {
   }
 }
 
-h2 {
-  font-size: 22px;
-  margin-bottom: 35px;
-  color: #2c2c2c;
-  letter-spacing: 1px;
-}
-
-/* Buttons container */
+/* Buttons wrapper */
 .buttons {
+  margin-top: 24px;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 14px;
+  flex-wrap: wrap;  /* allows stacking */
 }
 
 /* Buttons */
 button {
-  padding: 12px 28px;
-  border-radius: 6px;
-  border: 1px solid #c2a663;
-  background: transparent;
-  color: #2c2c2c;
-  font-size: 14px;
-  letter-spacing: 1px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-size: 15px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
+  min-width: 120px;
 }
 
 /* Yes button */
-button:first-child {
-  background: #c2a663;
+#yesBtn {
+  background: #ff6f9c;
   color: white;
+  box-shadow: 0 6px 18px rgba(255, 111, 156, 0.25);
 }
 
-button:first-child:hover {
-  background: #a88d4f;
+#yesBtn:hover {
+  transform: scale(1.05);
 }
 
 /* No button */
-button:last-child:hover {
-  background: #e8e4db;
+#noBtn {
+  background: #f2f2f2;
+  color: #777;
+  position: relative; /* safer for mobile */
 }
 
-/* Mobile */
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 16px;
+  animation: floatUp 7s linear forwards;
+  pointer-events: none;
+}
+
+/* Sparkles */
+.sparkle {
+  position: fixed;
+  font-size: 10px;
+  animation: sparkle 3s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+/* 📱 Mobile adjustments */
 @media (max-width: 480px) {
+
   .card {
-    padding: 35px 20px;
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  h2 {
+    font-size: 18px;
   }
 
   button {
-    width: 100%;
+    width: 100%;     /* full width buttons */
+    font-size: 14px;
   }
 }
